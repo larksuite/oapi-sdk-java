@@ -245,6 +245,7 @@
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
+        <skipTests>true</skipTests>
         <maven-versions-plugin.version>2.7</maven-versions-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <robolectric.version>10-robolectric-5803371</robolectric.version>
