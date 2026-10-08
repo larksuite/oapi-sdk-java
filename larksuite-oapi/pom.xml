@@ -61,6 +61,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
+                    <!-- Android stubs shadow Apache HTTP classes on the JVM test classpath. -->
+                    <classpathDependencyExcludes>
+                        <classpathDependencyExclude>org.robolectric:android-all</classpathDependencyExclude>
+                    </classpathDependencyExcludes>
                 </configuration>
                 <groupId>org.apache.maven.plugins</groupId>
                 <version>${maven-surefire-plugin.version}</version>

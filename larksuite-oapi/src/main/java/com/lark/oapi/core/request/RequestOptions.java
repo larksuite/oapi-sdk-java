@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class RequestOptions {
 
+    private com.lark.oapi.core.sse.SSEOptions sseOptions;
     private boolean needHelpDeskAuth;
     private String tenantKey;
     private String userAccessToken;
@@ -32,6 +33,7 @@ public class RequestOptions {
     }
 
     public RequestOptions(Builder builder) {
+        this.sseOptions = builder.sseOptions;
         this.needHelpDeskAuth = builder.needHelpDeskAuth;
         this.userAccessToken = builder.userAccessToken;
         this.appAccessToken = builder.appAccessToken;
@@ -43,6 +45,9 @@ public class RequestOptions {
         this.tenantKey = builder.tenantKey;
         this.supportLong2String = builder.supportLong2String;
     }
+
+    public com.lark.oapi.core.sse.SSEOptions getSSEOptions() { return sseOptions; }
+    public void setSSEOptions(com.lark.oapi.core.sse.SSEOptions value) { sseOptions = value; }
 
     public static Builder newBuilder() {
         return new Builder();
@@ -130,6 +135,7 @@ public class RequestOptions {
 
     public static final class Builder {
 
+        private com.lark.oapi.core.sse.SSEOptions sseOptions;
         private boolean needHelpDeskAuth;
         private String tenantKey;
         private String userAccessToken;
@@ -141,6 +147,8 @@ public class RequestOptions {
         private Boolean supportLong2String;
         private Map<String, List<String>> headers;
 
+
+        public Builder sseOptions(com.lark.oapi.core.sse.SSEOptions value) { sseOptions = value; return this; }
 
         public Builder needHelpDeskAuth(boolean needHelpDeskAuth) {
             this.needHelpDeskAuth = needHelpDeskAuth;

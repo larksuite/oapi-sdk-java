@@ -12,38 +12,97 @@
 
 package com.lark.oapi.core;
 
+import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.exception.AccessTokenNotGivenException;
-import com.lark.oapi.core.exception.ClientTimeoutException;
 import com.lark.oapi.core.exception.ClientAssertionException;
+import com.lark.oapi.core.exception.ClientTimeoutException;
 import com.lark.oapi.core.exception.IllegalAccessTokenTypeException;
 import com.lark.oapi.core.exception.ServerTimeoutException;
 import com.lark.oapi.core.httpclient.IHttpTransport;
+import com.lark.oapi.core.httpclient.IStreamingHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
 import com.lark.oapi.core.request.RawRequest;
 import com.lark.oapi.core.request.ReqTranslator;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
+import com.lark.oapi.core.sse.SSEOptions;
+import com.lark.oapi.core.sse.SSEStream;
+import com.lark.oapi.core.sse.StreamingCall;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.InterruptedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Transport {
 
     private static final Logger log = LoggerFactory.getLogger(Transport.class);
     private static final ReqTranslator REQ_TRANSLATOR = new ReqTranslator();
     private static final String OMITTED = "<omitted>";
+
+    /** Opens one streaming response using the existing SDK authentication path. */
+    public static SSEStream sendSSE(
+            Config config,
+            RequestOptions option,
+            String method,
+            String path,
+            Set<AccessTokenType> tokenTypes,
+            Object req)
+            throws Exception {
+        if (config == null || tokenTypes == null) {
+            throw new IllegalArgumentException("SSE config and token types are required");
+        }
+        if (option == null) {
+            option = new RequestOptions();
+        }
+        SSEOptions options = option.getSSEOptions();
+        if (options == null) {
+            options = new SSEOptions();
+        }
+        options.validate();
+        IHttpTransport transport = config.getHttpTransport();
+        if (transport == null) {
+            transport = new OkHttpTransport(OKHttps.defaultClient);
+        }
+        if (!(transport instanceof IStreamingHttpTransport)) {
+            throw new UnsupportedOperationException(
+                    "Configured HTTP transport does not support streaming");
+        }
+        Set<AccessTokenType> types = new HashSet<>(tokenTypes);
+        if (types.isEmpty()) {
+            types.add(AccessTokenType.None);
+        }
+        AccessTokenType type =
+                determineTokenType(types, option, config.isDisableTokenCache(), config);
+        validate(config, option, type);
+        RawRequest raw = REQ_TRANSLATOR.translate(req, type, config, method, path, option);
+        Map<String, List<String>> headers = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        headers.putAll(raw.getHeaders());
+        headers.put("Accept", Collections.singletonList("text/event-stream"));
+        if (!options.getLastEventId().isEmpty()) {
+            if (headers.containsKey("Last-Event-ID")) {
+                throw new IllegalArgumentException("conflicting SSE last event ID");
+            }
+            headers.put("Last-Event-ID", Collections.singletonList(options.getLastEventId()));
+        }
+        raw.setHeaders(headers);
+        StreamingCall call =
+                ((IStreamingHttpTransport) transport).createStreamingCall(raw, options);
+        return SSEStream.open(call, options);
+    }
 
     private static AccessTokenType determineTokenType(Set<AccessTokenType> accessTokenTypeSet,
                                                       RequestOptions requestOptions, boolean disableTokenCache,

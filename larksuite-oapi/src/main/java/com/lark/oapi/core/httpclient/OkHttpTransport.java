@@ -17,18 +17,23 @@ import com.lark.oapi.core.request.FormData;
 import com.lark.oapi.core.request.FormDataFile;
 import com.lark.oapi.core.request.RawRequest;
 import com.lark.oapi.core.response.RawResponse;
+import com.lark.oapi.core.sse.SSEOptions;
+import com.lark.oapi.core.sse.StreamingCall;
+import com.lark.oapi.core.sse.StreamingResponse;
 import com.lark.oapi.core.utils.IOs;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.okhttp.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
-public class OkHttpTransport implements IHttpTransport {
+public class OkHttpTransport implements IStreamingHttpTransport {
 
     private OkHttpClient okHttpClient;
 
@@ -53,9 +58,10 @@ public class OkHttpTransport implements IHttpTransport {
 
             for (FormDataFile file : ((FormData) body).getFiles()) {
                 final File finalFile = file.getFile();
-                builder.addFormDataPart(file.getFieldName(),
-                        Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName()
-                        , RequestBody.create(MediaType.parse("application/octet-stream"), finalFile));
+                builder.addFormDataPart(
+                        file.getFieldName(),
+                        Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName(),
+                        RequestBody.create(MediaType.parse("application/octet-stream"), finalFile));
             }
 
             return builder.build();
@@ -69,6 +75,48 @@ public class OkHttpTransport implements IHttpTransport {
                     , Jsons.DEFAULT.toJson(body).getBytes(StandardCharsets.UTF_8));
         }
 
+    }
+
+    @Override
+    public StreamingCall createStreamingCall(RawRequest raw, SSEOptions options) {
+        Request.Builder builder =
+                new Request.Builder()
+                        .url(raw.getReqUrl())
+                        .method(raw.getHttpMethod(), buildReqBody(raw));
+        raw.getHeaders()
+                .forEach((key, values) -> values.forEach(value -> builder.addHeader(key, value)));
+        if (!(raw.getBody() instanceof FormData)) {
+            builder.header("Content-Type", "application/json; charset=utf-8");
+        }
+        OkHttpClient client =
+                okHttpClient
+                        .newBuilder()
+                        .callTimeout(0, TimeUnit.MILLISECONDS)
+                        .connectTimeout(options.getOpenTimeoutMillis(), TimeUnit.MILLISECONDS)
+                        .readTimeout(options.getIdleReadTimeoutMillis(), TimeUnit.MILLISECONDS)
+                        .retryOnConnectionFailure(false)
+                        .followRedirects(false)
+                        .followSslRedirects(false)
+                        .build();
+        final Call call = client.newCall(builder.build());
+        return new StreamingCall() {
+            public StreamingResponse execute() throws Exception {
+                Response response = call.execute();
+                if (response.body() == null) {
+                    response.close();
+                    throw new IOException("Missing SSE response body");
+                }
+                return new StreamingResponse(
+                        response.code(),
+                        response.headers().toMultimap(),
+                        response.body().byteStream(),
+                        response);
+            }
+
+            public void cancel() {
+                call.cancel();
+            }
+        };
     }
 
     @Override
