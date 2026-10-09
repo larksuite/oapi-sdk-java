@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.larksuite.oapi.samples</groupId>
+  <artifactId>agent-examples</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <properties>
+    <!-- Local checkout SDK version; install it first. Do not infer published feature availability. -->
+    <agent.sdk.version>2.8.5</agent.sdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency><groupId>com.larksuite.oapi</groupId><artifactId>oapi-sdk</artifactId><version>${agent.sdk.version}</version></dependency>
+    <dependency><groupId>org.apache.httpcomponents</groupId><artifactId>httpclient</artifactId><version>4.5.13</version></dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>${project.basedir}/../src/main/java</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.8.1</version>
+        <configuration><source>8</source><target>8</target><includes><include>com/lark/oapi/sample/agent/**/*.java</include></includes></configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId><artifactId>exec-maven-plugin</artifactId><version>3.1.0</version>
+        <configuration><mainClass>com.lark.oapi.sample.agent.AgentSample</mainClass></configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

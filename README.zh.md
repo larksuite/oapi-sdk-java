@@ -1,5 +1,7 @@
 [**README of Larksuite(Overseas)**](README.md) | 飞书
 
+Agent v1 完整调用示例（对话、SSE、文件上传、续读与打断）：[接入指南](./sample/agent/README.md)。
+
 # 飞书开放接口SDK
 
 ## 概述
