@@ -22,6 +22,7 @@ public class CreateFileReqBody {
      * <p>示例值：
      */
     @SerializedName("file")
+    @com.lark.oapi.core.annotation.UploadFilename("filename")
     private java.io.File file;
 
     /**

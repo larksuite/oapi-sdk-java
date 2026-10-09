@@ -134,6 +134,7 @@ public class ApacheHttpClientTransport implements IStreamingHttpTransport {
             if (body instanceof FormData) {
                 MultipartEntityBuilder builder = MultipartEntityBuilder.create();
                 builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+                builder.setCharset(StandardCharsets.UTF_8);
                 builder.setContentType(ContentType.create(ContentType.MULTIPART_FORM_DATA.getMimeType()));
                 Iterator var18 = ((FormData) rawRequest.getBody()).getFiles().iterator();
 
@@ -146,7 +147,8 @@ public class ApacheHttpClientTransport implements IStreamingHttpTransport {
 
                 while (var18.hasNext()) {
                     Map.Entry<String, Object> entry = (Map.Entry) var18.next();
-                    builder.addTextBody((String) entry.getKey(), (String) entry.getValue());
+                    builder.addTextBody((String) entry.getKey(), (String) entry.getValue(),
+                            ContentType.create("text/plain", StandardCharsets.UTF_8));
                 }
 
                 request.setEntity(builder.build());

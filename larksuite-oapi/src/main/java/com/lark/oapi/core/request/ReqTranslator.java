@@ -19,6 +19,7 @@ import com.lark.oapi.core.UserAgent;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
+import com.lark.oapi.core.annotation.UploadFilename;
 import com.lark.oapi.core.exception.IllegalAccessTokenTypeException;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.token.GlobalTokenManager;
@@ -181,9 +182,13 @@ public class ReqTranslator {
             for (Field field : fields) {
                 field.setAccessible(true);
                 if (field.getType() == File.class) {
+                    if (field.get(body) == null) {
+                        continue;
+                    }
                     SerializedName serializedName = field.getAnnotation(SerializedName.class);
                     FormDataFile formDataFile = new FormDataFile();
                     formDataFile.setFile((File) field.get(body));
+                    applyUploadFilename(body, field, fields, formDataFile);
                     formDataFile.setFieldName(serializedName.value().trim());
                     formData.addFile(serializedName.value().trim(), formDataFile);
                 } else {
@@ -196,6 +201,37 @@ public class ReqTranslator {
         }
 
         return formData;
+    }
+
+    private void applyUploadFilename(Object body, Field fileField, Field[] fields,
+                                     FormDataFile file) throws IllegalAccessException {
+        UploadFilename annotation = fileField.getAnnotation(UploadFilename.class);
+        if (annotation == null) {
+            return;
+        }
+        for (Field field : fields) {
+            SerializedName name = field.getAnnotation(SerializedName.class);
+            if (name == null || !name.value().equals(annotation.value())) {
+                continue;
+            }
+            field.setAccessible(true);
+            Object value = field.get(body);
+            if (value == null || "".equals(value)) {
+                return;
+            }
+            if (!(value instanceof String)) {
+                throw new IllegalArgumentException("upload filename must be a string");
+            }
+            String filename = (String) value;
+            if (filename.equals(".") || filename.equals("..") || filename.indexOf('/') >= 0
+                    || filename.indexOf('\\') >= 0 || filename.indexOf('\r') >= 0
+                    || filename.indexOf('\n') >= 0 || filename.indexOf('\0') >= 0) {
+                throw new IllegalArgumentException("upload filename must not contain paths or control characters");
+            }
+            file.setFileName(filename);
+            return;
+        }
+        throw new IllegalArgumentException("missing upload filename field");
     }
 
     private String getFullReqUrl(String domain, String httpPath, Map<String, Object> pathMap,
