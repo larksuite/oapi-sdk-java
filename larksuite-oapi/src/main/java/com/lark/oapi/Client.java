@@ -34,6 +34,7 @@ import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.service.acs.AcsService;
 import com.lark.oapi.service.admin.AdminService;
+import com.lark.oapi.service.agent.AgentService;
 import com.lark.oapi.service.aily.AilyService;
 import com.lark.oapi.service.apaas.ApaasService;
 import com.lark.oapi.service.application.ApplicationService;
@@ -98,6 +99,7 @@ public class Client {
   private Config config;
   private AcsService acs;
   private AdminService admin;
+  private AgentService agent;
   private AilyService aily;
   private ApaasService apaas;
   private ApplicationService application;
@@ -176,6 +178,10 @@ public class Client {
 
   public AdminService admin() {
     return admin;
+  }
+
+  public AgentService agent() {
+    return agent;
   }
 
   public AilyService aily() {
@@ -592,6 +598,7 @@ public class Client {
       client.extService = new ExtService(config);
       client.acs = new AcsService(config);
       client.admin = new AdminService(config);
+      client.agent = new AgentService(config);
       client.aily = new AilyService(config);
       client.apaas = new ApaasService(config);
       client.application = new ApplicationService(config);
