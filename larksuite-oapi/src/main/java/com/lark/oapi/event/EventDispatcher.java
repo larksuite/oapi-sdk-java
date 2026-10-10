@@ -13,6 +13,8 @@
 
 package com.lark.oapi.event;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.IHandler;
 import com.lark.oapi.core.exception.DecryptException;
@@ -85,10 +87,7 @@ public class EventDispatcher implements IHandler {
   }
 
   public String parseReq(EventReq eventReq) throws UnsupportedEncodingException {
-    log.info(
-        "event req,header:{},body:{}",
-        Jsons.LONG_TO_STR.toJson(eventReq.getHeaders()),
-        new String(eventReq.getBody(), StandardCharsets.UTF_8));
+    log.debug("event req,httpPath:{}", eventReq.getHttpPath());
     if (!Strings.isEmpty(encryptKey)) {
       Fuzzy fuzzy =
           Jsons.DEFAULT.fromJson(
@@ -105,10 +104,32 @@ public class EventDispatcher implements IHandler {
     if (!Strings.isEmpty(encryptKey)) {
       // 非线程安全，所以每次要new
       String plainEventJsonStr = new Decryptor(encryptKey).decrypt(cipherEventJsonStr);
-      log.debug("plain Event: {}", plainEventJsonStr);
       return plainEventJsonStr.trim();
     }
     return cipherEventJsonStr;
+  }
+
+  private boolean verifyToken(String plainEventJsonStr) {
+    if (verificationToken == null) {
+      return false;
+    }
+    JsonObject payload = Jsons.DEFAULT.fromJson(plainEventJsonStr, JsonObject.class);
+    JsonObject tokenSource = payload;
+    if (payload.has("schema") || payload.has("header")) {
+      JsonElement header = payload.get("header");
+      if (header == null || !header.isJsonObject()) {
+        return false;
+      }
+      tokenSource = header.getAsJsonObject();
+    }
+    JsonElement token = tokenSource.get("token");
+    if (token == null || !token.isJsonPrimitive() || !token.getAsJsonPrimitive().isString()) {
+      return false;
+    }
+    String receivedToken = token.getAsString();
+    return MessageDigest.isEqual(
+            verificationToken.getBytes(StandardCharsets.UTF_8),
+            receivedToken.getBytes(StandardCharsets.UTF_8));
   }
 
   private boolean verifySign(EventReq eventReq) throws NoSuchAlgorithmException {
@@ -140,7 +161,6 @@ public class EventDispatcher implements IHandler {
       String eventType,
       String reqType,
       String challenge,
-      String token,
       EventReq req)
       throws Exception {
     EventResp resp = new EventResp();
@@ -151,7 +171,7 @@ public class EventDispatcher implements IHandler {
 
     // 使用challenge进行鉴权
     if (Constants.URL_VERIFICATION.equals(reqType)) {
-      if (!verificationToken.equals(token)) {
+      if (!verifyToken(plainEventJsonStr)) {
         throw new IncorrectChallengeException();
       }
 
@@ -282,17 +302,21 @@ public class EventDispatcher implements IHandler {
       if (Strings.isNotEmpty(fuzzy.getEncrypt())) {
         throw new IllegalArgumentException("process encrypted msg event, need config encryptKey");
       }
-      String token = fuzzy.getToken();
       String eventType = "";
       if (fuzzy.getEvent() != null) {
         eventType = fuzzy.getEvent().getType();
       }
       if (fuzzy.getHeader() != null) {
-        token = fuzzy.getHeader().getToken();
         eventType = fuzzy.getHeader().getEventType();
       }
       String challenge = fuzzy.getChallenge();
       String reqType = fuzzy.getType();
+
+      // Plaintext requests must authenticate before any handler is invoked.
+      if (Strings.isEmpty(encryptKey) && Strings.isNotEmpty(verificationToken)
+          && !verifyToken(plainEventJsonStr)) {
+        throw new IllegalArgumentException("invalid verification token");
+      }
 
       // 验签逻辑
       if (!Constants.URL_VERIFICATION.equals(reqType)) {
@@ -302,7 +326,7 @@ public class EventDispatcher implements IHandler {
       }
 
       // 处理逻辑
-      return doHandle(plainEventJsonStr, eventType, reqType, challenge, token, eventReq);
+      return doHandle(plainEventJsonStr, eventType, reqType, challenge, eventReq);
     } catch (Throwable e) {
       log.error(
           "handle event failed,httpPath:{},requestId:{},err:",
