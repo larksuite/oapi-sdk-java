@@ -70,10 +70,12 @@ public class EventDispatcher implements IHandler {
   private Map<String, ICallBackHandler> eventType2CardCallBackHandler = new HashMap<>();
   private String verificationToken;
   private String encryptKey;
+  private final WebhookCredentialsProvider webhookCredentialsProvider;
 
   public EventDispatcher(Builder builder) {
     this.verificationToken = builder.verificationToken;
     this.encryptKey = builder.encryptKey;
+    this.webhookCredentialsProvider = builder.webhookCredentialsProvider;
     this.eventType2EventHandler = builder.eventType2EventHandler;
     this.eventType2CardCallBackHandler = builder.eventType2CardCallbackHandler;
   }
@@ -87,6 +89,10 @@ public class EventDispatcher implements IHandler {
   }
 
   public String parseReq(EventReq eventReq) throws UnsupportedEncodingException {
+    return parseReq(eventReq, encryptKey);
+  }
+
+  private String parseReq(EventReq eventReq, String encryptKey) {
     log.debug("event req,httpPath:{}", eventReq.getHttpPath());
     if (!Strings.isEmpty(encryptKey)) {
       Fuzzy fuzzy =
@@ -101,6 +107,10 @@ public class EventDispatcher implements IHandler {
   }
 
   public String decryptEvent(String cipherEventJsonStr) {
+    return decryptEvent(cipherEventJsonStr, encryptKey);
+  }
+
+  private String decryptEvent(String cipherEventJsonStr, String encryptKey) {
     if (!Strings.isEmpty(encryptKey)) {
       // 非线程安全，所以每次要new
       String plainEventJsonStr = new Decryptor(encryptKey).decrypt(cipherEventJsonStr);
@@ -109,7 +119,7 @@ public class EventDispatcher implements IHandler {
     return cipherEventJsonStr;
   }
 
-  private boolean verifyToken(String plainEventJsonStr) {
+  private boolean verifyToken(String plainEventJsonStr, String verificationToken) {
     if (verificationToken == null) {
       return false;
     }
@@ -132,7 +142,7 @@ public class EventDispatcher implements IHandler {
             receivedToken.getBytes(StandardCharsets.UTF_8));
   }
 
-  private boolean verifySign(EventReq eventReq) throws NoSuchAlgorithmException {
+  private boolean verifySign(EventReq eventReq, String encryptKey) throws NoSuchAlgorithmException {
     if (Strings.isEmpty(encryptKey)) {
       return true;
     }
@@ -161,7 +171,8 @@ public class EventDispatcher implements IHandler {
       String eventType,
       String reqType,
       String challenge,
-      EventReq req)
+      EventReq req,
+      String verificationToken)
       throws Exception {
     EventResp resp = new EventResp();
     resp.setStatusCode(200);
@@ -171,7 +182,7 @@ public class EventDispatcher implements IHandler {
 
     // 使用challenge进行鉴权
     if (Constants.URL_VERIFICATION.equals(reqType)) {
-      if (!verifyToken(plainEventJsonStr)) {
+      if (!verifyToken(plainEventJsonStr, verificationToken)) {
         throw new IncorrectChallengeException();
       }
 
@@ -291,11 +302,16 @@ public class EventDispatcher implements IHandler {
     eventResp.setStatusCode(200);
     eventResp.setContentType(Constants.JSON_CONTENT_TYPE);
     try {
+      WebhookCredentials credentials = resolveWebhookCredentials();
+      String encryptKey = credentials.getEncryptKey();
+      String verificationToken = credentials.getVerificationToken();
       // 解析请求，如果需要的话
-      String cipherEventJsonStr = parseReq(eventReq);
+      String cipherEventJsonStr = webhookCredentialsProvider == null
+          ? parseReq(eventReq) : parseReq(eventReq, encryptKey);
 
       // 解密请求，如果需要的话
-      String plainEventJsonStr = decryptEvent(cipherEventJsonStr);
+      String plainEventJsonStr = webhookCredentialsProvider == null
+          ? decryptEvent(cipherEventJsonStr) : decryptEvent(cipherEventJsonStr, encryptKey);
 
       // 解析关键字段
       Fuzzy fuzzy = Jsons.DEFAULT.fromJson(plainEventJsonStr, Fuzzy.class);
@@ -314,19 +330,19 @@ public class EventDispatcher implements IHandler {
 
       // Plaintext requests must authenticate before any handler is invoked.
       if (Strings.isEmpty(encryptKey) && Strings.isNotEmpty(verificationToken)
-          && !verifyToken(plainEventJsonStr)) {
+          && !verifyToken(plainEventJsonStr, verificationToken)) {
         throw new IllegalArgumentException("invalid verification token");
       }
 
       // 验签逻辑
       if (!Constants.URL_VERIFICATION.equals(reqType)) {
-        if (!verifySign(eventReq)) {
+        if (!verifySign(eventReq, encryptKey)) {
           throw new IncorrectSignatureException();
         }
       }
 
       // 处理逻辑
-      return doHandle(plainEventJsonStr, eventType, reqType, challenge, eventReq);
+      return doHandle(plainEventJsonStr, eventType, reqType, challenge, eventReq, verificationToken);
     } catch (Throwable e) {
       log.error(
           "handle event failed,httpPath:{},requestId:{},err:",
@@ -349,16 +365,56 @@ public class EventDispatcher implements IHandler {
     return eventResp;
   }
 
+  private WebhookCredentials resolveWebhookCredentials() {
+    if (webhookCredentialsProvider == null) {
+      // Preserve static null-versus-empty challenge behavior.
+      return new WebhookCredentials(encryptKey, verificationToken);
+    }
+    try {
+      WebhookCredentials credentials = webhookCredentialsProvider.getCredentials();
+      if (credentials == null || credentials.getEncryptKey() == null
+          || credentials.getVerificationToken() == null) {
+        throw new IllegalArgumentException("invalid webhook credentials");
+      }
+      return credentials;
+    } catch (Throwable exception) {
+      if (exception instanceof InterruptedException) {
+        Thread.currentThread().interrupt();
+      }
+      // The existing outer error handler logs throwables: do not attach provider secrets.
+      throw new IllegalStateException("webhook credentials provider failed");
+    }
+  }
+
   public static class Builder {
     private Map<String, IEventHandler> eventType2EventHandler = new HashMap<>();
     private Map<String, ICallBackHandler> eventType2CardCallbackHandler = new HashMap<>();
     private String verificationToken;
     private String encryptKey;
+    private WebhookCredentialsProvider webhookCredentialsProvider;
 
     public Builder(String verificationToken, String encryptKey) {
       this.verificationToken = verificationToken;
       this.encryptKey = encryptKey;
       this.eventType2EventHandler.put("app_ticket", new AppTicketEventHandler());
+    }
+
+    /**
+     * Registers a provider read once per HTTP webhook, before parsing or authentication.
+     * The provider must be thread safe and prompt. Read locally cached credentials;
+     * any external I/O timeout is the provider's responsibility. Failures reject the
+     * request without using static credentials. Successful empty strings preserve
+     * static empty-string behavior. Trusted WebSocket dispatch does not call it.
+     *
+     * @param provider non-null credentials provider
+     * @return this builder
+     */
+    public Builder webhookCredentialsProvider(WebhookCredentialsProvider provider) {
+      if (provider == null) {
+        throw new IllegalArgumentException("webhook credentials provider is required");
+      }
+      this.webhookCredentialsProvider = provider;
+      return this;
     }
 
     public EventDispatcher build() {

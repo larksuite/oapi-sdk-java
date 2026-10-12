@@ -216,3 +216,36 @@ When no EncryptKey is configured and a nonempty VerificationToken is explicitly 
 Leaving both credentials empty retains the previous behavior. Encrypted events retain existing decryption and signature checks, and WebSocket clients continue using trusted internal dispatch.
 
 Rollback: reverting this change restores the validation gap for explicitly configured VerificationTokens. Keep independent webhook authentication in place before rolling back.
+
+### Runtime webhook credentials
+
+Register an optional provider on the event dispatcher builder. Update an immutable
+snapshot in your application's local cache to rotate credentials between requests:
+
+```java
+AtomicReference<WebhookCredentials> current = new AtomicReference<>(
+    new WebhookCredentials("initial-encrypt-key", "initial-verification-token"));
+EventDispatcher dispatcher = EventDispatcher.newBuilder("", "")
+    .webhookCredentialsProvider(current::get)
+    // Register event handlers here.
+    .build();
+// After a successful configuration refresh:
+current.set(new WebhookCredentials("new-encrypt-key", "new-verification-token"));
+```
+
+Import `java.util.concurrent.atomic.AtomicReference`,
+`com.lark.oapi.event.WebhookCredentials`, and `com.lark.oapi.event.EventDispatcher`.
+The constructor order is encryption key, then verification token. The provider is
+registered at initialization and called once per HTTP webhook (including challenge
+and card callbacks), before parsing/decryption. That request uses the same immutable
+snapshot throughout; trusted WebSocket dispatch never calls the provider. Public
+`parseReq`/`decryptEvent` helpers and credential getters retain their static behavior;
+use `handle` for provider-based HTTP processing.
+
+Providers must be thread safe and prompt, preferably reading a local cache. Any
+external I/O must have its own timeout; the SDK starts no background worker and does
+not retry. Exceptions or null results/fields reject the request without falling back
+to static credentials or exposing provider error details. Successful empty strings
+preserve static empty-string behavior, including legacy challenge validation. Without
+a provider, existing static configuration is unchanged. To roll back, remove provider
+registration and configure static credentials; retain the token validation fix.

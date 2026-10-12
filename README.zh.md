@@ -730,3 +730,32 @@ public static byte[]DownloadFile(String url)throws IOException{
 两个凭证都为空时保留原有行为。加密事件继续使用现有解密和签名校验；长连接继续通过内部可信分发路径处理。
 
 回滚：撤销本次修复会恢复已配置 VerificationToken 却未严格校验的缺口；回滚前应确保 Webhook 入口已有独立来源校验。
+
+### 运行中更新 Webhook 凭证
+
+可以在事件分发器 Builder 上注册 Provider，通过更新本地缓存的不可变快照轮换凭证：
+
+```java
+AtomicReference<WebhookCredentials> current = new AtomicReference<>(
+    new WebhookCredentials("initial-encrypt-key", "initial-verification-token"));
+EventDispatcher dispatcher = EventDispatcher.newBuilder("", "")
+    .webhookCredentialsProvider(current::get)
+    // 在此注册事件处理器。
+    .build();
+// 配置刷新成功后：
+current.set(new WebhookCredentials("new-encrypt-key", "new-verification-token"));
+```
+
+导入 `java.util.concurrent.atomic.AtomicReference`、
+`com.lark.oapi.event.WebhookCredentials` 和 `com.lark.oapi.event.EventDispatcher`。
+`WebhookCredentials` 构造参数顺序是 EncryptKey、VerificationToken。
+初始化只注册 Provider，每次 HTTP Webhook（含 challenge、卡片回调）在解析和解密前
+调用一次，整个请求使用同一个不可变快照；长连接可信分发不调用 Provider。
+公开的 `parseReq`、`decryptEvent` 辅助方法和凭证 getter 仍使用静态配置，
+需要动态凭证的 HTTP 请求请使用 `handle`。
+
+Provider 必须线程安全且及时返回，建议只读取本地缓存；外部 I/O 的超时由 Provider
+负责。SDK 不增加后台线程或重试。异常、null 返回值或 null 字段会拒绝请求，
+不回退静态凭证，也不暴露 Provider 异常详情。成功返回两个空字符串时，保留静态
+空字符串配置的行为，包括原有 challenge 校验。未配置 Provider 时保持已有行为。
+回滚时移除 Provider 注册并配置静态凭证即可，不需要回退此前的 token 校验修复。
