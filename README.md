@@ -249,3 +249,18 @@ to static credentials or exposing provider error details. Successful empty strin
 preserve static empty-string behavior, including legacy challenge validation. Without
 a provider, existing static configuration is unchanged. To roll back, remove provider
 registration and configure static credentials; retain the token validation fix.
+
+## WebSocket connection host and handshake headers
+
+`domain` controls HTTP endpoint discovery. The optional connection host replaces only the WebSocket URL `host[:port]`, preserving scheme, path and query. Default DNS and TLS/SNI follow the resulting hostname; existing custom transport settings still apply. Domains below are placeholders.
+
+```java
+Client client = new Client.Builder(System.getenv("APP_ID"), System.getenv("APP_SECRET"))
+    .domain("https://bootstrap.example.com")
+    .connectionHost("websocket.example.com:443")
+    .connectionHeaders(Collections.singletonMap("X-Route", "events"))
+    .eventHandler(eventHandler)
+    .build();
+```
+
+Handshake headers are copied at initialization and for each handshake, including reconnects, and are never forwarded to endpoint discovery. Omitting both settings preserves existing behavior. Host, Connection, Upgrade and Sec-WebSocket-* cannot be overridden through headers. Basic host checks reject empty values, schemes/paths and query parameters; other address and header settings are passed to the underlying libraries without additional SDK format checks. These basic host and reserved-header checks run before network I/O (Start returns an error in Go; construction/build throws in other SDKs). Use trusted developer configuration, not headers/hosts supplied by an end-user request.

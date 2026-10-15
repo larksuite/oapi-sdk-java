@@ -55,6 +55,7 @@ public class Client {
     private final Map<String, String> headers;
     private final ClientAssertionProvider clientAssertionProvider;
     private final OkHttpClient httpClient;
+    private final ConnectionConfig connectionConfig;
     private final Cache<String, byte[][]> cache;
     private final Runnable onReconnecting;
     private final Runnable onReconnected;
@@ -75,6 +76,7 @@ public class Client {
 
 
     private Client(Builder builder) {
+        this.connectionConfig = new ConnectionConfig(builder.connectionHost, builder.connectionHeaders);
         this.appId = builder.appId;
         this.appSecret = builder.appSecret;
         this.eventHandler = builder.eventHandler;
@@ -411,15 +413,12 @@ public class Client {
         if (this.conn != null) {
             return;
         }
-        this.connUrl = this.getConnUrl();
+        this.connUrl = this.connectionConfig.connectionUrl(this.getConnUrl());
         HttpUrl u = parseUrl(this.connUrl);
         this.connId = u.queryParameter(DEVICE_ID);
         this.serviceId = u.queryParameter(SERVICE_ID);
 
-        Request request = new Request.Builder()
-                .url(connUrl)
-                .header("User-Agent", resolvedUserAgent())
-                .build();
+        Request request = this.connectionConfig.handshakeRequest(connUrl, resolvedUserAgent());
         this.httpClient.newWebSocket(request, new Listener(this));
     }
 
@@ -646,6 +645,8 @@ public class Client {
         private Runnable onReconnected;
         private ClientAssertionProvider clientAssertionProvider;
         private OkHttpClient httpClient;
+        private String connectionHost;
+        private Map<String, String> connectionHeaders;
 
         public Builder(String appId, String appSecret) {
             this.appId = appId;
@@ -687,6 +688,25 @@ public class Client {
 
         public Builder httpClient(OkHttpClient httpClient) {
             this.httpClient = httpClient;
+            return this;
+        }
+
+        /**
+         * Override only the WebSocket URL host[:port], preserving its path/query.
+         * TLS uses the resulting host and the existing httpClient configuration.
+         * Invalid configuration is rejected by build().
+         */
+        public Builder connectionHost(String host) {
+            this.connectionHost = host;
+            return this;
+        }
+
+        /**
+         * Set WebSocket handshake headers, also used on reconnect. build() copies
+         * the map; protocol-owned headers are rejected. Bootstrap is unaffected.
+         */
+        public Builder connectionHeaders(Map<String, String> headers) {
+            this.connectionHeaders = headers;
             return this;
         }
 

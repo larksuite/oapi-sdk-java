@@ -759,3 +759,18 @@ Provider 必须线程安全且及时返回，建议只读取本地缓存；外�
 不回退静态凭证，也不暴露 Provider 异常详情。成功返回两个空字符串时，保留静态
 空字符串配置的行为，包括原有 challenge 校验。未配置 Provider 时保持已有行为。
 回滚时移除 Provider 注册并配置静态凭证即可，不需要回退此前的 token 校验修复。
+
+## WebSocket 连接 Host 与握手 Header
+
+`domain` 用于 HTTP 获取连接地址。新增的连接 Host 只改写 WebSocket URL 的 `host[:port]`，保留协议、路径和查询参数；默认 DNS、TLS/SNI 跟随最终域名，已有自定义传输配置仍然生效。以下域名仅为占位示例。
+
+```java
+Client client = new Client.Builder(System.getenv("APP_ID"), System.getenv("APP_SECRET"))
+    .domain("https://bootstrap.example.com")
+    .connectionHost("websocket.example.com:443")
+    .connectionHeaders(Collections.singletonMap("X-Route", "events"))
+    .eventHandler(eventHandler)
+    .build();
+```
+
+握手 Header 在初始化时复制，每次连接再使用独立副本，首次连接和重连均生效，不发送到 HTTP 获取连接地址的请求。未配置时保留原行为。Host、Connection、Upgrade、Sec-WebSocket-* 不允许通过 Header 覆盖。Host 只检查空值、协议/路径和查询参数；其他地址及 Header 配置直接传入底层库，不增加 SDK 格式校验。上述基础 Host 和保留 Header 检查在网络调用前执行（Go 在 Start 返回错误，其他语言在构造或 build 时抛错）。只使用开发者可信配置，不直接透传终端请求中的 Host/Header。
