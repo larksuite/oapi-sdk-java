@@ -35,12 +35,12 @@ public class LocalCache implements ICache {
 
     @Override
     public String get(String key) {
-        Value v = this.CACHE.get(key);
+        Value v = CACHE.get(key);
         if (v == null || new Date().after(v.end)) {
             return "";
         }
 
-        log.debug("get key:{},time left:{}s", key, (v.end.getTime() - new Date().getTime()) / 1000);
+        log.debug("get key:{},time left:{}s", key, (v.end.getTime() - System.currentTimeMillis()) / 1000);
         return v.value;
     }
 
