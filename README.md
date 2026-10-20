@@ -1,5 +1,7 @@
 # 飞书开放接口SDK/Feishu OpenPlatform Server SDK
 
+[商店应用 ClientAssertion 认证](docs/isv-client-assertion.md)
+
 旨在让开发者便捷的调用飞书开放API、处理订阅的事件、处理服务端推送的卡片行为等。
 
 Feishu Open Platform offers a series of server-side atomic APIs to achieve diverse functionalities. However, actual coding requires additional work, such as obtaining and maintaining access tokens, encrypting and decrypting data, and verifying request signatures. Furthermore, the lack of semantic descriptions for function calls and type system support can increase coding burdens.

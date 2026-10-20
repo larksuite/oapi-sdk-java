@@ -43,6 +43,7 @@ public interface Constants {
     String OAUTH_TOKEN_URL_PATH = "/oauth/v3/token";
     String GRANT_TYPE_AUTHORIZATION_CODE = "authorization_code";
     String GRANT_TYPE_REFRESH_TOKEN = "refresh_token";
+    String GRANT_TYPE_CLIENT_CREDENTIALS = "client_credentials";
     String GRANT_TYPE_JWT_BEARER = "urn:ietf:params:oauth:grant-type:jwt-bearer";
     String CLIENT_ASSERTION_TYPE_JWT_BEARER = "urn:ietf:params:oauth:client-assertion-type:jwt-bearer";
     String HEADER_X_TARGET_SERVICE = "X-Target-Service";
