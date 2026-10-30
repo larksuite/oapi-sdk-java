@@ -264,3 +264,23 @@ Client client = new Client.Builder(System.getenv("APP_ID"), System.getenv("APP_S
 ```
 
 Handshake headers are copied at initialization and for each handshake, including reconnects, and are never forwarded to endpoint discovery. Omitting both settings preserves existing behavior. Host, Connection, Upgrade and Sec-WebSocket-* cannot be overridden through headers. Basic host checks reject empty values, schemes/paths and query parameters; other address and header settings are passed to the underlying libraries without additional SDK format checks. These basic host and reserved-header checks run before network I/O (Start returns an error in Go; construction/build throws in other SDKs). Use trusted developer configuration, not headers/hosts supplied by an end-user request.
+
+## WebSocket client shutdown
+
+The low-level `com.lark.oapi.ws.Client` supports three close variants:
+
+```java
+client.close();             // Disconnect only; preserve executor and existing restart behavior
+client.close(true);         // Permanent shutdown; allow existing tasks up to 30 seconds
+client.close(true, 5000L);  // Permanent shutdown; wait up to 5000 milliseconds
+```
+
+`close(false)` and `close(false, timeoutMillis)` preserve the executor just like `close()`.
+The timeout is in milliseconds and must be non-negative. Zero skips waiting and interrupts unfinished tasks.
+Permanent shutdown calls `shutdown()`, then `shutdownNow()` if the wait expires. Tasks that ignore interruption may still be running when the method returns.
+If the calling thread is interrupted, shutdown is forced and its interrupt flag is restored.
+After executor shutdown, `start()` throws `IllegalStateException`; create a new Client to reconnect.
+Invoke the shutdown overloads outside SDK event/worker threads to avoid waiting for the calling task itself.
+Use `close(true)` when disposing of the client or exiting the application. The no-argument behavior remains unchanged for compatibility.
+
+Closing a client also wakes and stops its heartbeat promptly, without interrupting business tasks. Each restart uses a separate heartbeat stop signal so a previous loop cannot resume.

@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -46,6 +47,8 @@ import static com.lark.oapi.ws.Constant.*;
 
 public class Client {
     private static final Logger log = LoggerFactory.getLogger(Client.class);
+    private static final long DEFAULT_SHUTDOWN_TIMEOUT_MILLIS = 30000;
+
     protected final ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2 + 1);
     private final String appId;
     private final String appSecret;
@@ -71,7 +74,7 @@ public class Client {
     private Integer reconnectInterval;
     private Integer pingInterval;
     private volatile CompletableFuture<Void> readyFuture;
-    private volatile boolean pingLoopRunning;
+    private CountDownLatch pingStopSignal;
     private volatile boolean hasEverConnected;
 
 
@@ -99,11 +102,13 @@ public class Client {
         this.readyFuture = new CompletableFuture<>();
         this.onReconnecting = builder.onReconnecting;
         this.onReconnected = builder.onReconnected;
-        this.pingLoopRunning = false;
         this.hasEverConnected = false;
     }
 
     public void start() {
+        if (this.executor.isShutdown()) {
+            throw new IllegalStateException("websocket client executor has been shutdown");
+        }
         this.userClosed = false;
         if (this.readyFuture.isDone()) {
             this.readyFuture = new CompletableFuture<>();
@@ -154,26 +159,89 @@ public class Client {
         }
     }
 
+    /**
+     * Disconnects without shutting down the executor, preserving the existing restart behavior.
+     */
     public void close() {
         this.userClosed = true;
+        synchronized (this) {
+            if (this.pingStopSignal != null) {
+                this.pingStopSignal.countDown();
+                this.pingStopSignal = null;
+            }
+        }
         if (!this.readyFuture.isDone()) {
             this.readyFuture.completeExceptionally(new ServerUnreachableException("websocket client closed"));
         }
         this.disconnect();
     }
 
-    private synchronized void startPingLoop() {
-        if (this.pingLoopRunning) {
-            return;
-        }
-        this.pingLoopRunning = true;
-        this.executor.execute(this::pingLoop);
+    /**
+     * Disconnects and optionally shuts down the executor, waiting up to 30 seconds
+     * before interrupting unfinished tasks. A shut-down client cannot be restarted.
+     * Call with {@code shutdown=true} from outside this client's event/worker threads.
+     *
+     * @param shutdown whether to permanently shut down the executor
+     */
+    public void close(boolean shutdown) {
+        close(shutdown, DEFAULT_SHUTDOWN_TIMEOUT_MILLIS);
     }
 
-    private void pingLoop() {
+    /**
+     * Disconnects and optionally shuts down the executor gracefully. If the wait expires,
+     * unfinished tasks are interrupted; their termination is not guaranteed on return.
+     * Interruption of the caller triggers immediate shutdown and restores its interrupt flag.
+     * A shut-down client cannot be restarted. To avoid waiting for the calling task itself,
+     * call with {@code shutdown=true} from outside this client's event/worker threads.
+     *
+     * @param shutdown whether to permanently shut down the executor; false preserves it
+     * @param timeoutMillis non-negative graceful shutdown wait in milliseconds; ignored
+     *                      when shutdown is false; zero requests immediate forced shutdown
+     * @throws IllegalArgumentException if timeoutMillis is negative
+     */
+    public void close(boolean shutdown, long timeoutMillis) {
+        if (shutdown && timeoutMillis < 0) {
+            throw new IllegalArgumentException("timeoutMillis must not be negative");
+        }
         try {
-            this.sleep(2000);
-            while (!this.userClosed) {
+            close();
+        } finally {
+            if (shutdown) {
+                this.executor.shutdown();
+                try {
+                    if (!this.executor.awaitTermination(timeoutMillis, TimeUnit.MILLISECONDS)) {
+                        this.executor.shutdownNow();
+                    }
+                } catch (InterruptedException e) {
+                    this.executor.shutdownNow();
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+
+    private synchronized void startPingLoop() {
+        if (this.userClosed || this.pingStopSignal != null) {
+            return;
+        }
+        // Each generation owns its stop signal: restarting cannot revive an old loop.
+        CountDownLatch stopSignal = new CountDownLatch(1);
+        this.pingStopSignal = stopSignal;
+        try {
+            this.executor.execute(() -> pingLoop(stopSignal));
+        } catch (RuntimeException e) {
+            this.pingStopSignal = null;
+            stopSignal.countDown();
+            throw e;
+        }
+    }
+
+    private void pingLoop(CountDownLatch stopSignal) {
+        try {
+            if (stopSignal.await(2000, TimeUnit.MILLISECONDS)) {
+                return;
+            }
+            while (stopSignal.getCount() != 0) {
                 try {
                     if (this.conn != null) {
                         Pbbp2.Frame frame = newPingFrame(Integer.parseInt(this.serviceId));
@@ -182,12 +250,19 @@ public class Client {
                     }
                 } catch (Throwable t) {
                     log.warn(fmtLog("ping failed"), t);
-                } finally {
-                    this.sleep(this.pingInterval * 1000);
+                }
+                if (stopSignal.await(this.pingInterval * 1000L, TimeUnit.MILLISECONDS)) {
+                    return;
                 }
             }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         } finally {
-            this.pingLoopRunning = false;
+            synchronized (this) {
+                if (this.pingStopSignal == stopSignal) {
+                    this.pingStopSignal = null;
+                }
+            }
         }
     }
 
