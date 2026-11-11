@@ -1,0 +1,23 @@
+larksuite-oapi/pom.xml
+  s_47903f2387f034::t_0706f7c7699b01 262
+sample/pom.xml
+  s_47903f2387f034::t_c88e0b21240476 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ab93d20cef38231980b91c406b30c6cffd43ba8d",
+  "prompts": {},
+  "sessions": {
+    "s_47903f2387f034": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b3e2b77-1f7f-4119-972a-3c78e44e417c",
+        "model": "unknown"
+      },
+      "human_author": "mazhe.nerd <mazhe.nerd@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}

@@ -1,0 +1,33 @@
+README.md
+  s_47903f2387f034::t_b8c2a2df1034c7 117-126,132,148
+README.zh.md
+  s_47903f2387f034::t_1fc7d083cfd448 183-192,198,214
+larksuite-oapi/pom.xml
+  s_47903f2387f034::t_c0ae407eda1083 262
+larksuite-oapi/src/main/java/com/lark/oapi/scene/registration/AppAddons.java
+  s_47903f2387f034::t_0f4c054b4bfa81 39-43,46,58-61,131-135
+larksuite-oapi/src/main/java/com/lark/oapi/scene/registration/AppAddonsEncoder.java
+  s_47903f2387f034::t_94aed2105599df 45-46,54-59
+larksuite-oapi/src/test/java/com/lark/oapi/scene/registration/TestRegisterApp.java
+  s_47903f2387f034::t_58e73548b4d89c 55,57,394,406-483
+sample/pom.xml
+  s_47903f2387f034::t_fa87e2ec3de4a9 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "26f957b593e35637e5007d181ba35c8e91398876",
+  "prompts": {},
+  "sessions": {
+    "s_47903f2387f034": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b3e2b77-1f7f-4119-972a-3c78e44e417c",
+        "model": "unknown"
+      },
+      "human_author": "mazhe.nerd <mazhe.nerd@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
