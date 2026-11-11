@@ -92,29 +92,34 @@ public class TestIsvClientAssertion {
 
     @Test
     public void failedResponsesNeverEnterCache() throws Exception {
-        for (String failure : new String[]{
-                SUCCESS.replace("}", ",\"code\":400}"),
-                SUCCESS.replace("}", ",\"error\":\"invalid_client\"}"),
-                SUCCESS.replace("test-token", ""),
-                SUCCESS.replace("7200", "0"),
-                SUCCESS.replace("Bearer", "Other")}) {
+        for (String[] failure : new String[][]{
+                {"{\"code\":400,\"error\":\"invalid_client\",\"error_description\":\"assertion rejected\"}", "ISV tenant token exchange failed (HTTP 200), error: invalid_client, error_description: assertion rejected"},
+                {"{\"code\":400,\"error_description\":\"assertion rejected\"}", "ISV tenant token exchange failed (HTTP 200), error_description: assertion rejected"},
+                {SUCCESS.replace("}", ",\"code\":400}"), "ISV tenant token exchange failed (HTTP 200)"},
+                {SUCCESS.replace("}", ",\"error\":\"invalid_client\"}"), "ISV tenant token exchange failed (HTTP 200), error: invalid_client"},
+                {SUCCESS.replace("test-token", ""), "access_token is empty"},
+                {SUCCESS.replace("7200", "0"), "expires_in must be positive"},
+                {SUCCESS.replace("Bearer", "Other"), "token_type must be Bearer"}}) {
             RecordingTransport transport = new RecordingTransport();
-            transport.response = failure;
+            transport.response = failure[0];
             RecordingCache cache = new RecordingCache();
             try {
                 new TokenManager(cache).getTenantAccessToken(config(transport), "tenant-A");
                 fail("expected invalid response error");
             } catch (ClientAssertionException expected) {
+                assertTrue(expected.getMessage(), expected.getMessage().contains(failure[1]));
                 assertTrue(cache.values.isEmpty());
             }
         }
         RecordingTransport transport = new RecordingTransport();
         transport.status = 400;
+        transport.response = "{\"code\":20140,\"error\":\"invalid_client\",\"error_description\":\"assertion rejected\"}";
         try {
             new TokenManager(new RecordingCache()).getTenantAccessToken(config(transport), "tenant-A");
             fail("expected HTTP error");
         } catch (ClientAssertionException expected) {
-            assertNotNull(expected.getMessage());
+            assertEquals(20140, expected.getCode());
+            assertEquals("ISV tenant token exchange failed (HTTP 400), error: invalid_client, error_description: assertion rejected", expected.getMessage());
         }
     }
 

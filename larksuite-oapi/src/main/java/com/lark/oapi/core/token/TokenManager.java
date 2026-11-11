@@ -245,13 +245,28 @@ public class TokenManager {
         String token = getString(respBody, "access_token");
         if (isMarketplace && (resp.getStatusCode() != 200 || getInt(respBody, "code") != 0
                 || Strings.isNotEmpty(getString(respBody, "error")))) {
-            log.warn("ISV tenant token exchange failed, aud:{}, status:{}, code:{}", aud, resp.getStatusCode(), getInt(respBody, "code"));
-            throw new ClientAssertionException(getErrorCode(resp, respBody), "ISV tenant token exchange failed");
+            String message = "ISV tenant token exchange failed (HTTP " + resp.getStatusCode() + ")";
+            String error = getString(respBody, "error");
+            if (Strings.isNotEmpty(error)) {
+                message += ", error: " + error;
+            }
+            String description = getString(respBody, "error_description");
+            if (Strings.isNotEmpty(description)) {
+                message += ", error_description: " + description;
+            }
+            log.warn("ISV tenant token exchange failed, aud:{}, status:{}, code:{}, msg:{}", aud, resp.getStatusCode(), getInt(respBody, "code"), message);
+            throw new ClientAssertionException(getErrorCode(resp, respBody), message);
         }
         if (isMarketplace && (Strings.isEmpty(token) || getInt(respBody, "expires_in") <= 0
                 || !"Bearer".equalsIgnoreCase(getString(respBody, "token_type")))) {
-            log.warn("invalid ISV tenant token response, aud:{}", aud);
-            throw new ClientAssertionException(getErrorCode(resp, respBody), "invalid ISV tenant token response");
+            String message = "token_type must be Bearer";
+            if (Strings.isEmpty(token)) {
+                message = "access_token is empty";
+            } else if (getInt(respBody, "expires_in") <= 0) {
+                message = "expires_in must be positive";
+            }
+            log.warn("invalid ISV tenant token response, aud:{}, msg:{}", aud, message);
+            throw new ClientAssertionException(getErrorCode(resp, respBody), "invalid ISV tenant token response: " + message);
         }
         if (Strings.isEmpty(token)) {
             throw new ClientAssertionException(getErrorCode(resp, respBody), getErrorMessage(respBody));
