@@ -24,7 +24,6 @@ import com.lark.oapi.core.request.ReqTranslator;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Strings;
@@ -141,13 +140,6 @@ public class Transport {
                                  AccessTokenType accessTokenType) {
         if (Strings.isEmpty(config.getAppId())) {
             throw new IllegalArgumentException("appId is blank");
-        }
-
-        if (config.getClientAssertionProvider() != null
-                && config.getAppType() == AppType.MARKETPLACE) {
-            throw new ClientAssertionException(
-                    Constants.ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED,
-                    "ClientAssertion mode is not supported for marketplace apps");
         }
 
         boolean hasManualAccessToken =
