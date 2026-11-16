@@ -59,17 +59,13 @@ public class TestTransportClientAssertion {
     }
 
     @Test
-    public void marketplaceClientAssertionModeFails() throws Exception {
+    public void marketplaceClientAssertionAllowsOAuthRequests() throws Exception {
         Config config = config();
         config.setAppType(AppType.MARKETPLACE);
-
-        try {
-            Transport.send(config, null, "GET", "/resource", Sets.newHashSet(AccessTokenType.Tenant), null);
-        } catch (ClientAssertionException e) {
-            assertEquals(Constants.ERR_CODE_CLIENT_ASSERTION_PROVIDER_NOT_CONFIGURED, e.getCode());
-            return;
-        }
-        throw new AssertionError("expected ClientAssertionException");
+        CapturingTransport transport = new CapturingTransport();
+        config.setHttpTransport(transport);
+        Transport.send(config, null, "POST", "/oauth/v3/token", Sets.newHashSet(AccessTokenType.None), new Object());
+        assertNull(transport.lastRequest.getHeaders().get("Authorization"));
     }
 
     @Test

@@ -179,9 +179,18 @@ public class TokenManager {
     }
 
     private String getTenantTokenByClientAssertion(Config config, String tenantKey) throws Exception {
+        boolean isMarketplace = config.getAppType() == AppType.MARKETPLACE;
+        if (isMarketplace && (tenantKey == null || tenantKey.trim().isEmpty())) {
+            log.warn("ISV tenant token exchange requires tenant key");
+            throw new IllegalArgumentException("tenant key is required for ISV token exchange");
+        }
         String oauthBaseUrl = ClientAssertionUtils.resolveOAuthBaseUrl(config);
         String aud = ClientAssertionUtils.resolveOAuthAud(config);
         String tokenKey = getClientAssertionTenantAccessTokenKey(config.getAppId(), tenantKey, aud);
+        if (isMarketplace) {
+            tokenKey = getClientAssertionTenantAccessTokenKey(config.getAppId(), tenantKey, oauthBaseUrl)
+                    + ":client_credentials";
+        }
         if (!config.isDisableTokenCache()) {
             String cachedToken = cache.get(tokenKey);
             if (Strings.isNotEmpty(cachedToken)) {
@@ -219,7 +228,10 @@ public class TokenManager {
         }
 
         Map<String, Object> body = new HashMap<>();
-        body.put("grant_type", Constants.GRANT_TYPE_JWT_BEARER);
+        body.put("grant_type", isMarketplace ? Constants.GRANT_TYPE_CLIENT_CREDENTIALS : Constants.GRANT_TYPE_JWT_BEARER);
+        if (isMarketplace) {
+            body.put("tenant_key", tenantKey);
+        }
         body.put("client_assertion_type", Constants.CLIENT_ASSERTION_TYPE_JWT_BEARER);
         body.put("client_assertion", assertionToken.getValue());
         body.put("client_id", config.getAppId());
@@ -231,6 +243,31 @@ public class TokenManager {
 
         JsonObject respBody = parseBody(resp);
         String token = getString(respBody, "access_token");
+        if (isMarketplace && (resp.getStatusCode() != 200 || getInt(respBody, "code") != 0
+                || Strings.isNotEmpty(getString(respBody, "error")))) {
+            String message = "ISV tenant token exchange failed (HTTP " + resp.getStatusCode() + ")";
+            String error = getString(respBody, "error");
+            if (Strings.isNotEmpty(error)) {
+                message += ", error: " + error;
+            }
+            String description = getString(respBody, "error_description");
+            if (Strings.isNotEmpty(description)) {
+                message += ", error_description: " + description;
+            }
+            log.warn("ISV tenant token exchange failed, aud:{}, status:{}, code:{}, msg:{}", aud, resp.getStatusCode(), getInt(respBody, "code"), message);
+            throw new ClientAssertionException(getErrorCode(resp, respBody), message);
+        }
+        if (isMarketplace && (Strings.isEmpty(token) || getInt(respBody, "expires_in") <= 0
+                || !"Bearer".equalsIgnoreCase(getString(respBody, "token_type")))) {
+            String message = "token_type must be Bearer";
+            if (Strings.isEmpty(token)) {
+                message = "access_token is empty";
+            } else if (getInt(respBody, "expires_in") <= 0) {
+                message = "expires_in must be positive";
+            }
+            log.warn("invalid ISV tenant token response, aud:{}, msg:{}", aud, message);
+            throw new ClientAssertionException(getErrorCode(resp, respBody), "invalid ISV tenant token response: " + message);
+        }
         if (Strings.isEmpty(token)) {
             throw new ClientAssertionException(getErrorCode(resp, respBody), getErrorMessage(respBody));
         }
