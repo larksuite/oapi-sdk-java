@@ -774,3 +774,23 @@ Client client = new Client.Builder(System.getenv("APP_ID"), System.getenv("APP_S
 ```
 
 握手 Header 在初始化时复制，每次连接再使用独立副本，首次连接和重连均生效，不发送到 HTTP 获取连接地址的请求。未配置时保留原行为。Host、Connection、Upgrade、Sec-WebSocket-* 不允许通过 Header 覆盖。Host 只检查空值、协议/路径和查询参数；其他地址及 Header 配置直接传入底层库，不增加 SDK 格式校验。上述基础 Host 和保留 Header 检查在网络调用前执行（Go 在 Start 返回错误，其他语言在构造或 build 时抛错）。只使用开发者可信配置，不直接透传终端请求中的 Host/Header。
+
+## WebSocket 客户端关闭与资源释放
+
+底层 `com.lark.oapi.ws.Client` 提供三种关闭方式：
+
+```java
+client.close();              // 只断开连接，保留线程池和现有重新启动行为
+client.close(true);          // 永久关闭，默认最多等待 30 秒让现有任务结束
+client.close(true, 5000L);   // 永久关闭，最多等待 5000 毫秒
+```
+
+`close(false)` 和 `close(false, timeoutMillis)` 与 `close()` 一样保留线程池。
+等待时长单位为毫秒，必须非负；0 表示不等待，未结束的任务会立即收到中断。
+永久关闭先调用 `shutdown()`，等待超时后调用 `shutdownNow()`；返回时不保证不响应中断的任务已经退出。
+调用线程被中断时会强制关闭线程池并恢复中断标记。
+线程池销毁后不能再次 `start()`，需要创建新的 Client。
+请在 SDK 事件处理/工作线程之外调用带线程池销毁的重载，避免等待当前任务自身退出。
+应用最终退出或丢弃客户端时应使用 `close(true)`；保留无参关闭行为以兼容现有代码。
+
+关闭客户端时会立即唤醒并停止心跳，不中断业务任务。每次重启使用独立的心跳停止信号，避免旧循环恢复运行。
