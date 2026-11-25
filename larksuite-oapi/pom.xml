@@ -88,6 +88,7 @@
                         <link>http://docs.oracle.com/javase/8/docs/api</link>
                     </links>
                     <show>public</show>
+                    <use>false</use>
                 </configuration>
                 <executions>
                     <execution>
