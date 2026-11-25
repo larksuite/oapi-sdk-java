@@ -27,6 +27,10 @@ public final class ClientAssertionUtils {
     }
 
     public static String resolveOAuthAud(Config config) {
+        String audience = config == null ? null : config.getOAuthAudience();
+        if (audience != null && !audience.isEmpty()) {
+            return audience;
+        }
         return extractAudFromUrl(resolveOAuthBaseUrl(config));
     }
 
