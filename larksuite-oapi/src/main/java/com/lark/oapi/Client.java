@@ -526,6 +526,12 @@ public class Client {
       return this;
     }
 
+    /** Sets the ClientAssertion audience and the target-service header for proxied OAuth requests. */
+    public Builder oauthAudience(String audience) {
+      config.setOAuthAudience(audience);
+      return this;
+    }
+
     public Builder clientAssertionProvider(ClientAssertionProvider provider) {
       config.setClientAssertionProvider(provider);
       return this;

@@ -54,17 +54,22 @@ public class TestClientAssertionTokenManager {
     }
 
     @Test
-    public void targetInfoUsesProxyUrlAndTargetServiceHeader() throws Exception {
+    public void targetInfoUsesProxyUrlAndExplicitOAuthAudience() throws Exception {
         CapturingTransport transport = new CapturingTransport("{\"access_token\":\"tenant-token\",\"expires_in\":7200}");
+        AtomicReference<String> audRef = new AtomicReference<>();
         Config config = config(transport);
-        config.setClientAssertionProvider(aud -> new ClientAssertionToken(
-                "client-assertion",
-                new TargetInfo("proxy.example.com", "/proxy")));
+        config.setOAuthBaseUrl("http://localhost:18080");
+        config.setOAuthAudience("accounts.example.com");
+        config.setClientAssertionProvider(aud -> {
+            audRef.set(aud);
+            return new ClientAssertionToken("client-assertion", new TargetInfo("proxy.example.com", "/proxy"));
+        });
 
         new TokenManager(new CapturingCache()).getTenantAccessToken(config, "");
 
+        assertEquals("accounts.example.com", audRef.get());
         assertEquals("https://proxy.example.com/proxy/oauth/v3/token", transport.request.getReqUrl());
-        assertEquals("accounts.feishu.cn", transport.request.getHeaders().get(Constants.HEADER_X_TARGET_SERVICE).get(0));
+        assertEquals("accounts.example.com", transport.request.getHeaders().get(Constants.HEADER_X_TARGET_SERVICE).get(0));
     }
 
     @Test

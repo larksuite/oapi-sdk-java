@@ -2,6 +2,7 @@ package com.lark.oapi.core.accesstoken;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.lark.oapi.Client;
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.auth.ClientAssertionToken;
@@ -111,17 +112,24 @@ public class TestAccessToken {
     }
 
     @Test
-    public void targetInfoUsesProxyAndTargetServiceHeader() throws Exception {
+    public void targetInfoUsesProxyAndExplicitOAuthAudienceFromBuilder() throws Exception {
         CapturingTransport transport = new CapturingTransport(successBody(), 200);
-        Config config = providerConfig(transport);
-        config.setClientAssertionProvider(aud -> new ClientAssertionToken(
-                "client-assertion",
-                new TargetInfo("proxy.example.com", "/proxy")));
+        AtomicReference<String> audRef = new AtomicReference<>();
+        Client client = Client.newBuilder("cli_a", "")
+                .oauthBaseUrl("http://localhost:18080")
+                .oauthAudience("accounts.example.com")
+                .clientAssertionProvider(aud -> {
+                    audRef.set(aud);
+                    return new ClientAssertionToken("client-assertion", new TargetInfo("proxy.example.com", "/proxy"));
+                })
+                .httpTransport(transport)
+                .build();
 
-        new AccessToken(config).refresh(RefreshTokenRequest.newBuilder().refreshToken("refresh-token").build());
+        client.accessToken().refresh(RefreshTokenRequest.newBuilder().refreshToken("refresh-token").build());
 
+        assertEquals("accounts.example.com", audRef.get());
         assertEquals("https://proxy.example.com/proxy/oauth/v3/token", transport.request.getReqUrl());
-        assertEquals("accounts.feishu.cn", transport.request.getHeaders().get(Constants.HEADER_X_TARGET_SERVICE).get(0));
+        assertEquals("accounts.example.com", transport.request.getHeaders().get(Constants.HEADER_X_TARGET_SERVICE).get(0));
     }
 
     @Test

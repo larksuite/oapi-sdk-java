@@ -39,6 +39,7 @@ public class Config {
     private boolean logReqAtDebug;
     private String source;
     private String oauthBaseUrl;
+    private String oauthAudience;
     private ClientAssertionProvider clientAssertionProvider;
 
     public Config() {
@@ -176,6 +177,14 @@ public class Config {
 
     public void setOAuthBaseUrl(String oauthBaseUrl) {
         this.oauthBaseUrl = oauthBaseUrl;
+    }
+
+    public String getOAuthAudience() {
+        return oauthAudience;
+    }
+
+    public void setOAuthAudience(String oauthAudience) {
+        this.oauthAudience = oauthAudience;
     }
 
     public ClientAssertionProvider getClientAssertionProvider() {
