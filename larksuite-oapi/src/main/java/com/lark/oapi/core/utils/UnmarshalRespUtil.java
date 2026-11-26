@@ -13,13 +13,36 @@
 package com.lark.oapi.core.utils;
 
 import com.lark.oapi.core.response.RawResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 
 public class UnmarshalRespUtil {
 
+    private static final Logger log = LoggerFactory.getLogger(UnmarshalRespUtil.class);
+    private static final int MAX_LOG_BODY_LENGTH = 500;
+
     public static <T> T unmarshalResp(RawResponse resp, Class<T> respClass) {
-        return Jsons.DEFAULT.fromJson(new String(resp.getBody(), StandardCharsets.UTF_8),
-                respClass);
+        String bodyStr = new String(resp.getBody(), StandardCharsets.UTF_8);
+        int statusCode = resp.getStatusCode();
+        if (statusCode < 200 || statusCode >= 300) {
+            String truncatedBody = truncate(bodyStr);
+            log.warn("unexpected response status, statusCode={}, body={}", statusCode, truncatedBody);
+        }
+        try {
+            return Jsons.DEFAULT.fromJson(bodyStr, respClass);
+        } catch (Exception e) {
+            String truncatedBody = truncate(bodyStr);
+            log.error("unmarshal response error, statusCode={}, body={}", statusCode, truncatedBody);
+            throw e;
+        }
+    }
+
+    private static String truncate(String body) {
+        if (body.length() > MAX_LOG_BODY_LENGTH) {
+            return body.substring(0, MAX_LOG_BODY_LENGTH) + "...(truncated)";
+        }
+        return body;
     }
 }
